@@ -1,0 +1,19 @@
+MAGNO CLIMATIZAÇÃO E REFRIGERAÇÃO
+
+Como abrir:
+1. Extraia todo o ZIP, mantendo as pastas.
+2. Abra index.html no navegador.
+
+Como publicar em outra hospedagem:
+Envie index.html, favicon.ico e as pastas css, js e img para a pasta pública da hospedagem.
+Não precisa instalar React, Node, Tailwind ou qualquer ferramenta de compilação.
+O CSS já está pronto; todo o comportamento usa JavaScript puro.
+As fontes do Google e os links para WhatsApp/redes sociais precisam de internet.
+
+Arquivos:
+index.html — conteúdo de todas as seções.
+css/style.css — estilos completos, incluindo regras para celular.
+js/main.js — menu mobile, perguntas frequentes e animações.
+img/ — fotos e logo utilizados na página.
+
+Esta versão mantém o conteúdo atual: depoimentos, áreas atendidas e condições de garantia ainda devem ser confirmados com a empresa. Os artigos continuam como resumos, sem páginas completas.
