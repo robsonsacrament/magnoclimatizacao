@@ -5,28 +5,40 @@
   <meta content="width=device-width,initial-scale=1" name="viewport" />
   <title>Ar-Condicionado em Florianópolis | Magno Climatização e Refrigeração</title>
   <meta content="Magno Climatização e Refrigeração" property="og:site_name" />
-  <meta content="Instalação, manutenção preventiva e higienização de ar-condicionado para residências e empresas na Grande Florianópolis. Orçamento pelo WhatsApp (48) 99617-7747." name="description" />
+  <meta content="Instalação, manutenção preventiva, refrigeração comercial e higienização de ar-condicionado em Florianópolis. Orçamento rápido pelo WhatsApp (48) 99617-7747." name="description" />
   <meta content="Ar-Condicionado em Florianópolis | Magno Climatização" property="og:title" />
-  <meta content="Instalação, manutenção preventiva e higienização de ar-condicionado para residências e empresas na Grande Florianópolis. Orçamento pelo WhatsApp (48) 99617-7747." property="og:description" />
   <meta content="website" property="og:type" />
-  <meta content="summary_large_image" name="twitter:card" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
   
-
-  <!-- CSS MANUAL PARA FORÇAR AS ALTERAÇÕES NO DESKTOP E MOBILE -->
+  <!-- CSS ATUALIZADO COM MAPA E RODAPÉ LIMPO -->
   <style>
-    /* Hero */
+    /* ... (Mantenha todo o seu CSS anterior aqui) ... */
+
+    /* NOVA REGRA: Limitar altura das imagens de serviço no Desktop */
     @media (min-width: 1024px) {
-      .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-      .hero-image-container { margin-left: auto; margin-right: 0; }
+      #servicos article img {
+        max-height: 180px !important;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
-    /* Projetos */
-    @media (min-width: 1024px) {
-      .galeria-fotos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+    /* Ajuste para mobile continuar bonito */
+    @media (max-width: 1023px) {
+      #servicos article img {
+        max-height: 160px;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
+    /* Grid de Serviços: Forçar 3 colunas no desktop mesmo com mais itens */
+    @media (min-width: 1024px) {
+      #servicos .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
     /* Dicas e Conteúdo - 4 imagens lado a lado e menores */
     .dicas-container {
       display: grid;
@@ -44,43 +56,82 @@
       .dicas-container { grid-template-columns: repeat(4, 1fr); }
     }
 
-    /* Como Trabalhamos: margem do título no mobile */
-    @media (max-width: 767px) {
-      #como-trabalhamos li h3 { margin-top: 0.75rem; }
-    }
-    @media (min-width: 768px) {
-      #como-trabalhamos li h3 { margin-top: 1.25rem; }
+    /* ============================================================
+       CORREÇÕES ESPECÍFICAS SOLICITADAS (RODAPÉ E HERO)
+       ============================================================ */
+
+    /* 1. HERO DESKTOP: Texto à esquerda, Imagem à direita */
+    @media (min-width: 1024px) {
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      .hero-image-container {
+        margin-left: auto;
+        margin-right: 0;
+      }
     }
 
-    /* Força o contato a centralizar no celular */
+    /* 2. RODAPÉ DESKTOP: Alinhar Contato na mesma linha dos outros */
+    @media (min-width: 768px) {
+      .footer-top-text {
+        padding-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      footer .col-span-2.md\:col-span-1 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+    }
+
+    /* 3. RODAPÉ MOBILE: Layout corrigido e COMPACTO */
     @media (max-width: 767px) {
-      .contato-wrapper {
+      /* Força a coluna de contato a ocupar toda a largura abaixo das outras duas */
+      footer .col-span-2.md\:col-span-1 {
+        grid-column: span 2 / span 2 !important; 
+        width: 100% !important;
+        margin-top: 1.5rem !important; /* Reduzido para ficar mais junto */
+        padding-top: 1rem !important;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      /* Centraliza o título */
+      .contato-wrapper h3 {
+        text-align: center !important;
+        width: 100%;
+        margin-bottom: 0.5rem !important; /* Título bem colado nos links */
+      }
+      
+      /* AJUSTE PRINCIPAL: Deixar tudo MUITO junto (Compacto) */
+      .contato-wrapper ul {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
-        text-align: center !important;
+        gap: 0.1rem !important; /* Espaço mínimo entre linhas */
+        line-height: 1.3 !important;
       }
-      .contato-wrapper ul {
-        width: 100% !important;
-        text-align: center !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .contato-wrapper a {
-        word-break: break-all !important;
-        display: inline-block;
-        max-width: 90%;
-      }
-    }
 
-    /* Rodapé */
-    @media (min-width: 768px) {
-      .footer-top-text { padding-top: 1.5rem; }
+      .contato-wrapper li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.1rem; /* Mínimo respiro */
+      }
+
+      .contato-wrapper a {
+        display: inline-block;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
     }
   </style>
+  
+  <link href="css/style.css" rel="stylesheet" />
 </head>
 
 <body class="bg-background text-foreground">
@@ -90,7 +141,6 @@
       <a aria-label="Magno Climatização — início" href="index.html">
         <img alt="Logo Magno Climatização e Refrigeração" class="h-10 md:h-12 w-auto rounded-md" height="190" src="img/logo.png" width="576"/>
       </a>
-
       <nav aria-label="Menu principal" class="hidden lg:block">
         <ul class="flex gap-6 text-sm font-medium text-navy">
           <li><a class="transition-colors hover:text-primary" href="#inicio">Início</a></li>
@@ -102,18 +152,15 @@
           <li><a class="transition-colors hover:text-primary" href="#contato">Contato</a></li>
         </ul>
       </nav>
-
       <a class="btn btn-cta hidden !py-2.5 text-sm lg:inline-flex" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
         Orçamento via WhatsApp
       </a>
-
       <button aria-expanded="false" aria-label="Abrir menu" class="p-2 text-navy lg:hidden">
         <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
     </div>
-
     <nav aria-label="Menu mobile" class="border-t px-5 pb-5 lg:hidden" hidden id="mobile-nav">
       <ul class="flex flex-col py-2 font-medium text-navy">
         <li><a class="block py-3" href="#inicio">Início</a></li>
@@ -131,38 +178,22 @@
   </header>
 
   <main>
-
-        <!-- HERO / INÍCIO -->
+    <!-- HERO / INÍCIO -->
     <section class="relative overflow-hidden bg-navy px-5 py-14 lg:py-28" id="inicio">
       <img alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" height="912" src="img/ambiente.jpg" width="1600"/>
       <div class="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy/90 to-navy/60"></div>
-
+      
       <div class="relative mx-auto max-w-6xl hero-grid">
-        <!-- Textos (Esquerda) -->
         <div class="max-w-xl">
-          <p class="mb-4 font-display text-sm font-bold uppercase tracking-widest text-primary">
-            Conforto • Eficiência • Qualidade
-          </p>
-
-          <h1 class="text-2xl font-extrabold leading-snug text-navy-foreground sm:text-3xl md:text-4xl lg:text-[3.25rem] lg:leading-[1.15]">
-            Ar-Condicionado em Florianópolis: Instalação, Limpeza e Manutenção
-          </h1>
-
-          <h2 class="mt-4 text-base font-normal leading-relaxed text-navy-foreground/80 md:mt-6 md:text-lg">
-            Especialistas em climatização e refrigeração. Atendemos residências e empresas com instalação de split, higienização (PMOC), carga de gás e conserto de geladeiras. Atendimento ágil na Grande Florianópolis.
-          </h2>
-
+          <p class="mb-4 font-display text-sm font-bold uppercase tracking-widest text-primary">Conforto • Eficiência • Qualidade</p>
+          <h1 class="text-2xl font-extrabold leading-snug text-navy-foreground sm:text-3xl md:text-4xl lg:text-[3.25rem] lg:leading-[1.15]">Ar-Condicionado em Florianópolis: Instalação, Limpeza e Manutenção</h1>
+          <h2 class="mt-4 text-base font-normal leading-relaxed text-navy-foreground/80 md:mt-6 md:text-lg">Especialistas em climatização, refrigeração comercial e laudos técnicos. Atendimento ágil na Grande Florianópolis.</h2>
           <div class="mt-6 flex flex-row flex-nowrap gap-2 md:mt-8 md:gap-4">
-            <a class="btn btn-cta !px-4 !py-2.5 text-xs md:!px-6 md:!py-3 md:text-base flex-1 md:flex-none justify-center" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
-              Solicitar Orçamento
-            </a>
-            <a class="btn btn-outline-light !px-4 !py-2.5 text-xs md:!px-6 md:!py-3 md:text-base flex-1 md:flex-none justify-center" href="#servicos">
-              Conhecer Serviços
-            </a>
+            <a class="btn btn-cta !px-4 !py-2.5 text-xs md:!px-6 md:!py-3 md:text-base flex-1 md:flex-none justify-center" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Solicitar Orçamento</a>
+            <a class="btn btn-outline-light !px-4 !py-2.5 text-xs md:!px-6 md:!py-3 md:text-base flex-1 md:flex-none justify-center" href="#servicos">Conhecer Serviços</a>
           </div>
         </div>
-
-        <!-- Imagem do Técnico (Direita) -->
+        
         <div class="relative w-full max-w-xs sm:max-w-sm mx-auto mt-8 sm:mt-0 hero-image-container">
           <div class="absolute -inset-3 rotate-3 rounded-3xl bg-primary"></div>
           <img alt="Técnico da Magno instalando ar-condicionado split" class="relative aspect-[16/11] w-full rounded-3xl object-cover object-top shadow-card sm:aspect-[4/5]" height="1024" src="img/tecnico-split.jpg" width="784"/>
@@ -175,33 +206,25 @@
       <div class="reveal mx-auto grid max-w-6xl grid-cols-2 gap-6 md:grid-cols-4">
         <div class="flex flex-col items-center rounded-2xl bg-card p-6 text-center shadow-soft">
           <span class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-accent text-primary">
-            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"></path>
-            </svg>
+            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"></path></svg>
           </span>
           <h3 class="text-sm font-bold text-navy md:text-base">Assistência Técnica Especializada</h3>
         </div>
         <div class="flex flex-col items-center rounded-2xl bg-card p-6 text-center shadow-soft">
           <span class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-accent text-primary">
-            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-              <path d="M3 7h18v7H3zM6 17v1M10 17v3M14 17v2M18 17v1M6 11h12"></path>
-            </svg>
+            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 7h18v7H3zM6 17v1M10 17v3M14 17v2M18 17v1M6 11h12"></path></svg>
           </span>
           <h3 class="text-sm font-bold text-navy md:text-base">Instalação Profissional</h3>
         </div>
         <div class="flex flex-col items-center rounded-2xl bg-card p-6 text-center shadow-soft">
           <span class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-accent text-primary">
-            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-              <path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"></path>
-            </svg>
+            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"></path></svg>
           </span>
           <h3 class="text-sm font-bold text-navy md:text-base">Higienização e Limpeza</h3>
         </div>
         <div class="flex flex-col items-center rounded-2xl bg-card p-6 text-center shadow-soft">
           <span class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-accent text-primary">
-            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
-              <path d="M13 2L4 14h7l-1 8 9-12h-7z"></path>
-            </svg>
+            <svg aria-hidden="true" class="h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>
           </span>
           <h3 class="text-sm font-bold text-navy md:text-base">Atendimento Rápido</h3>
         </div>
@@ -216,21 +239,15 @@
           <div>
             <h2 class="text-3xl font-extrabold text-navy md:text-4xl">Conheça a Magno</h2>
             <span class="mt-4 block h-1 w-16 rounded-full bg-primary"></span>
-            <p class="mt-6 text-muted-foreground">
-              A Magno Climatização e Refrigeração atua com assistência técnica, instalação, higienização, carga de gás, infraestrutura e consertos de ar-condicionado e geladeiras, levando conforto térmico para casas e empresas.
-            </p>
-            <p class="mt-4 text-muted-foreground">
-              Nosso compromisso é com a eficiência: executamos cada serviço com segurança, materiais de qualidade e mão de obra especializada, garantindo o melhor desempenho e a durabilidade do seu sistema de climatização.
-            </p>
-            <a class="btn btn-cta mt-8" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
-              Fale Conosco
-            </a>
+            <p class="mt-6 text-muted-foreground">A Magno Climatização e Refrigeração atua com assistência técnica, instalação, higienização, carga de gás, infraestrutura e consertos de ar-condicionado e geladeiras, levando conforto térmico para casas e empresas.</p>
+            <p class="mt-4 text-muted-foreground">Nosso compromisso é com a eficiência: executamos cada serviço com segurança, materiais de qualidade e mão de obra especializada, garantindo o melhor desempenho e a durabilidade do seu sistema de climatização.</p>
+            <a class="btn btn-cta mt-8" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Fale Conosco</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
+       <!-- SERVIÇOS -->
     <section class="px-5 py-20 md:py-28 bg-navy" id="servicos">
       <div class="reveal mx-auto max-w-6xl">
         <h2 class="mb-12 text-center text-3xl font-extrabold md:text-4xl text-navy-foreground">
@@ -239,71 +256,127 @@
         </h2>
 
         <div class="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-3 lg:gap-8">
+          
+          <!-- Card 1: Instalação de Split -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Instalação de Split" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/tecnico-split.jpg"/>
+              <img alt="Instalação de Split" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/tecnico-split.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
               <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Instalação de Split</h3>
               <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Instalação profissional conforme normas técnicas, com acabamento limpo e seguro.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20instala%C3%A7%C3%A3o%20de%20split." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
           
+          <!-- Card 2: Manutenção Preventiva -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Manutenção Preventiva" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/instalacao.jpg"/>
+              <img alt="Manutenção Preventiva" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/instalacao.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
               <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Manutenção Preventiva</h3>
               <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Mais vida útil e eficiência para o seu equipamento, evitando quebras inesperadas.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20manuten%C3%A7%C3%A3o%20preventiva." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
 
+          <!-- Card 3: Higienização (PMOC) -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Higienização (PMOC)" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/ambiente.jpg"/>
+              <img alt="Higienização (PMOC)" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/ambiente.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
               <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Higienização (PMOC)</h3>
-              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Limpeza completa para um ar mais saudável e conformidade para empresas.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Limpeza completa para um ar mais saudável e conformidade legal para empresas.</p>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o%20PMOC." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
 
+          <!-- Card 4: Carga de Gás -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Carga de Gás" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/carga-gas.jpg"/>
+              <img alt="Carga de Gás Refrigerante" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/carga-gas.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
               <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Carga de Gás</h3>
               <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Verificação de vazamentos e recarga de gás refrigerante com equipamentos adequados.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Preciso%20de%20carga%20de%20g%C3%A1s%20no%20ar-condicionado." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
 
+          <!-- NOVO Card 5: Refrigeração Comercial (Imagem Nova) -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Conserto de Geladeiras" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/geladeira.jpg"/>
+              <img alt="Refrigeração Comercial" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/refrigeracao%20comercial.jpg"/>
+            </div>
+            <div class="p-3 md:p-5 flex-1 flex flex-col">
+              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Refrigeração Comercial</h3>
+              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Manutenção e instalação de câmaras frias, expositores e sistemas comerciais.</p>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20refrigera%C3%A7%C3%A3o%20comercial." rel="noopener" target="_blank">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- NOVO Card 6: Manutenção Corretiva (Imagem Nova) -->
+          <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+            <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
+              <img alt="Manutenção Corretiva e Reparos" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/manutencao%20corretiva.jpg"/>
+            </div>
+            <div class="p-3 md:p-5 flex-1 flex flex-col">
+              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Manutenção Corretiva</h3>
+              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Diagnóstico preciso e reparo rápido para voltar a gelar o quanto antes.</p>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Meu%20ar-condicionado%20parou%20de%20funcionar.%20Preciso%20de%20reparo." rel="noopener" target="_blank">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- NOVO Card 7: Laudos Técnicos (Imagem Nova) -->
+          <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+            <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
+              <img alt="Laudos Técnicos e PMOC" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/laudo%20tecnico.jpg"/>
+            </div>
+            <div class="p-3 md:p-5 flex-1 flex flex-col">
+              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Laudos Técnicos</h3>
+              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Documentação oficial para fiscalização, condomínios e conformidade com a lei.</p>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Preciso%20de%20um%20laudo%20t%C3%A9cnico%20para%20meu%20ar-condicionado." rel="noopener" target="_blank">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- NOVO Card 8: Consultoria e Projetos (Imagem Nova) -->
+          <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+            <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
+              <img alt="Consultoria e Projetos de Climatização" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/consultoria%20e%20projetos.jpg"/>
+            </div>
+            <div class="p-3 md:p-5 flex-1 flex flex-col">
+              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Consultoria e Projetos</h3>
+              <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Planejamento completo de climatização para obras novas ou reformas.</p>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20uma%20consultoria%20para%20projeto%20de%20climatiza%C3%A7%C3%A3o." rel="noopener" target="_blank">Saiba mais →</a>
+            </div>
+          </article>
+
+          <!-- Card 9: Conserto de Geladeiras -->
+          <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
+            <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
+              <img alt="Conserto de Geladeiras" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/geladeira.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
               <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Conserto de Geladeiras</h3>
               <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Diagnóstico e reparo de refrigeradores residenciais com agilidade.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Minha%20geladeira%20precisa%20de%20conserto." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
 
+          <!-- Card 10: Infraestrutura -->
           <article class="group overflow-hidden rounded-2xl bg-card shadow-card flex flex-col">
             <div class="overflow-hidden w-full flex justify-center pt-4 px-4">
-              <img alt="Infraestrutura para Climatização" class="h-auto w-full max-h-[160px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/infra.jpg"/>
+              <img alt="Infraestrutura para Climatização" class="h-auto w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/infra.jpg"/>
             </div>
             <div class="p-3 md:p-5 flex-1 flex flex-col">
-              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Infraestrutura para Climatização</h3>
+              <h3 class="text-sm font-bold leading-snug text-navy md:text-lg">Infraestrutura</h3>
               <p class="mt-1.5 text-xs leading-snug text-muted-foreground md:mt-2 md:text-sm flex-1">Tubulação, drenos e elétrica planejados antes do acabamento da obra.</p>
-              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">Saiba mais →</a>
+              <a class="mt-2 inline-block text-xs font-bold text-primary hover:underline md:mt-3 md:text-sm" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20infraestrutura%20de%20ar-condicionado." rel="noopener" target="_blank">Saiba mais →</a>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -315,7 +388,6 @@
           Como Trabalhamos
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <ol class="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
           <li class="relative flex flex-col items-center text-center">
             <span class="mx-auto grid h-10 w-10 shrink-0 aspect-square place-items-center rounded-full bg-navy font-display text-sm font-extrabold text-navy-foreground ring-2 ring-accent md:h-16 md:w-16 md:text-xl md:ring-4">01</span>
@@ -348,7 +420,6 @@
           Projetos Realizados
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <div class="galeria-fotos grid grid-cols-2 gap-3 md:gap-4">
           <figure class="break-inside-avoid overflow-hidden rounded-xl shadow-soft md:rounded-2xl">
             <img alt="Instalação de split em apartamento" class="aspect-square w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" src="img/tecnico-split.jpg"/>
@@ -397,7 +468,6 @@
           O que nossos clientes dizem
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <div class="grid gap-4 md:grid-cols-3 md:gap-6">
           <figure class="rounded-2xl bg-card p-5 shadow-card md:p-7">
             <div aria-label="5 estrelas" class="text-base tracking-widest text-star md:text-xl">★★★★★</div>
@@ -425,7 +495,6 @@
           Regiões Atendidas
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <ul class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
           <li class="h-full"><a class="relative flex h-full items-center justify-center gap-2 rounded-xl border px-6 py-2.5 text-center text-sm font-medium text-navy transition-colors hover:border-primary hover:text-primary md:p-4 md:text-base" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.%20Estou%20na%20regi%C3%A3o%20Centro." rel="noopener" target="_blank"><span class="absolute left-2 text-[10px] text-primary md:left-3 md:text-sm">●</span>Centro</a></li>
           <li class="h-full"><a class="relative flex h-full items-center justify-center gap-2 rounded-xl border px-6 py-2.5 text-center text-sm font-medium text-navy transition-colors hover:border-primary hover:text-primary md:p-4 md:text-base" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento.%20Estou%20na%20regi%C3%A3o%20Campeche." rel="noopener" target="_blank"><span class="absolute left-2 text-[10px] text-primary md:left-3 md:text-sm">●</span>Campeche</a></li>
@@ -454,7 +523,6 @@
           Dicas de Ar-Condicionado e Refrigeração
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <div class="dicas-container max-w-5xl mx-auto">
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
@@ -465,7 +533,6 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">Fungos e bactérias acumulam nos filtros. Veja por que limpar regularmente protege sua saúde.</p>
             </div>
           </article>
-
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Manutenção preventiva" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/instalacao.jpg"/>
@@ -475,7 +542,6 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">Entenda a frequência ideal para manter o desempenho e economizar energia.</p>
             </div>
           </article>
-
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Escolha de ar-condicionado" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/tecnico-split.jpg"/>
@@ -485,7 +551,6 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">BTUs, tamanho do ambiente e incidência solar: o que considerar antes de comprar.</p>
             </div>
           </article>
-
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Infraestrutura para climatização" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/infra.jpg"/>
@@ -506,7 +571,6 @@
           Perguntas Frequentes
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
-
         <div class="mx-auto flex max-w-3xl flex-col gap-3 md:gap-4">
           <div class="rounded-xl border bg-card transition-colors hover:border-primary/50">
             <h3>
@@ -517,9 +581,7 @@
             </h3>
             <div class="grid transition-all duration-300 grid-rows-[0fr]">
               <p class="overflow-hidden px-4 text-sm text-muted-foreground md:px-5">
-                <span class="block pb-4 leading-relaxed md:pb-5">
-                  O valor depende da capacidade do aparelho, da distância entre as unidades e da infraestrutura existente. Envie uma mensagem pelo WhatsApp para um orçamento sem compromisso.
-                </span>
+                <span class="block pb-4 leading-relaxed md:pb-5">O valor depende da capacidade do aparelho, da distância entre as unidades e da infraestrutura existente. Envie uma mensagem pelo WhatsApp para um orçamento sem compromisso.</span>
               </p>
             </div>
           </div>
@@ -532,9 +594,7 @@
             </h3>
             <div class="grid transition-all duration-300 grid-rows-[0fr]">
               <p class="overflow-hidden px-4 text-sm text-muted-foreground md:px-5">
-                <span class="block pb-4 leading-relaxed md:pb-5">
-                  Em uso residencial, recomenda-se ao menos a cada 6 meses. Em ambientes comerciais ou de uso intenso, o intervalo pode ser menor.
-                </span>
+                <span class="block pb-4 leading-relaxed md:pb-5">Em uso residencial, recomenda-se ao menos a cada 6 meses. Em ambientes comerciais ou de uso intenso, o intervalo pode ser menor.</span>
               </p>
             </div>
           </div>
@@ -547,9 +607,7 @@
             </h3>
             <div class="grid transition-all duration-300 grid-rows-[0fr]">
               <p class="overflow-hidden px-4 text-sm text-muted-foreground md:px-5">
-                <span class="block pb-4 leading-relaxed md:pb-5">
-                  Sim. Atendemos residências, comércios e empresas, incluindo projetos de infraestrutura para obras.
-                </span>
+                <span class="block pb-4 leading-relaxed md:pb-5">Sim. Atendemos residências, comércios e empresas, incluindo projetos de infraestrutura para obras.</span>
               </p>
             </div>
           </div>
@@ -562,9 +620,7 @@
             </h3>
             <div class="grid transition-all duration-300 grid-rows-[0fr]">
               <p class="overflow-hidden px-4 text-sm text-muted-foreground md:px-5">
-                <span class="block pb-4 leading-relaxed md:pb-5">
-                  Sim, nossos serviços contam com garantia. Consulte as condições para o seu serviço pelo WhatsApp.
-                </span>
+                <span class="block pb-4 leading-relaxed md:pb-5">Sim, nossos serviços contam com garantia. Consulte as condições para o seu serviço pelo WhatsApp.</span>
               </p>
             </div>
           </div>
@@ -572,31 +628,45 @@
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- CTA FINAL COM GOOGLE MAPS INCORPORADO -->
     <section class="relative overflow-hidden border-t-4 border-primary bg-navy px-5 py-14 text-center md:border-t-8 md:py-20">
       <div class="reveal mx-auto max-w-3xl">
-        <h2 class="text-2xl font-extrabold text-navy-foreground md:text-4xl">
-          Pronto para garantir o conforto térmico do seu ambiente?
-        </h2>
-        <a class="btn btn-cta mt-6 inline-flex !px-6 !py-3 text-sm md:mt-10 md:!px-8 md:!py-5 md:text-lg" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
-          <svg aria-hidden="true" class="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewbox="0 0 24 24">
-            <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"></path>
-          </svg>
-          Falar com um Especialista no WhatsApp
-        </a>
+        <h2 class="text-2xl font-extrabold text-navy-foreground md:text-4xl">Pronto para garantir o conforto térmico do seu ambiente?</h2>
+        
+        <!-- Botões de Ação -->
+        <div class="mt-6 flex flex-col gap-4 items-center justify-center md:flex-row md:gap-6">
+          <a class="btn btn-cta inline-flex !px-6 !py-3 text-sm md:!px-8 md:!py-5 md:text-lg w-full md:w-auto justify-center" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
+            <svg aria-hidden="true" class="h-4 w-4 md:h-5 md:w-5 mr-2" fill="currentColor" viewbox="0 0 24 24">
+              <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"></path>
+            </svg>
+            Falar com um Especialista no WhatsApp
+          </a>
+        </div>
+
+        <!-- Google Maps Incorporado -->
+        <div class="mt-8 w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-card border border-border">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.8223061704234!2d-48.419577324540576!3d-27.484281676310605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952741f076c10b21%3A0xbb5b62eb8b0165f4!2zSW5zdGFsYcOnw6NvIGUgbWFudXRlbsOnw6NvIGRlIGFyIGNvbmRpY2lvbmFkbyB8IE1hZ25vIENsaW1hdGl6YcOnw6NvIGUgUmVmcmlnZXJhw6fDo28gQ29uY2VydG9zIGUgTWFudXRlbsOnw6NvIHwgRmxvcmlhbsOzcG9saXM!5e1!3m2!1spt-BR!2sbr!4v1794863910060!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Localização Magno Climatização">
+          </iframe>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER CORRIGIDO COM CNPJ E SEM INSTAGRAM/SITE -->
   <footer class="bg-navy-deep px-5 pt-12 pb-8 text-navy-foreground/80 md:pt-16" id="contato">
     <div class="mx-auto max-w-6xl">
       
-      <!-- Texto Institucional (Sem a linha fina) -->
-      <div class="text-center pb-8 md:pb-6">
-        <p class="footer-top-text text-sm leading-relaxed max-w-2xl mx-auto">
-          Climatização e refrigeração com qualidade, segurança e atendimento ágil na Grande Florianópolis.
-        </p>
+      <!-- Texto Institucional -->
+      <div class="text-center pb-8 md:pb-6 footer-top-text">
+        <p class="text-sm leading-relaxed max-w-2xl mx-auto">Climatização e refrigeração com qualidade, segurança e atendimento ágil na Grande Florianópolis.</p>
       </div>
 
       <!-- Grid: No mobile, Contato ocupa a tela toda. No desktop, 3 colunas perfeitas. -->
@@ -623,25 +693,20 @@
             <li>Manutenção Preventiva</li>
             <li>Higienização (PMOC)</li>
             <li>Carga de Gás</li>
-            <li>Conserto de Geladeiras</li>
-            <li>Infraestrutura</li>
+            <li>Refrigeração Comercial</li>
+            <li>Laudos Técnicos</li>
           </ul>
         </div>
 
-                <!-- Contato (Centralizado no mobile) -->
-        <div class="col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center w-full mt-6 md:mt-0" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+        <!-- Contato (Centralizado e Full Width no mobile) -->
+        <div class="col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center w-full mt-6 md:mt-0 contato-wrapper" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
           <h3 class="mb-4 font-bold text-navy-foreground text-base md:text-lg">Contato</h3>
           
-          <!-- O style garante que a lista e seus itens fiquem sempre no centro -->
-          <ul class="space-y-2.5 text-sm" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0; margin: 0;">
+          <!-- Lista Compacta (Instagram e Site removidos) -->
+          <ul class="text-sm" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0; margin: 0; gap: 0.1rem;">
             <li>
               <a class="hover:text-primary transition-colors whitespace-nowrap" href="https://wa.me/5548996177747?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." rel="noopener" target="_blank">
                 (48) 99617-7747
-              </a>
-            </li>
-            <li>
-              <a class="hover:text-primary transition-colors" href="https://www.instagram.com/magnoclimatizacao" rel="noopener" target="_blank">
-                @magnoclimatizacao
               </a>
             </li>
             <li>
@@ -649,20 +714,14 @@
                 Facebook
               </a>
             </li>
-            <li style="text-align: center;">
-              <!-- O break-all impede que o link do site quebre no meio das letras -->
-              <a class="hover:text-primary transition-colors break-all" href="https://www.magnoclimatizacao.com.br">
-                www.magnoclimatizacao.com.br
-              </a>
-            </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Linha Final (Copyright e Política) -->
-      <div class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-navy-foreground/10 pt-6 text-center text-xs opacity-70 md:flex-row md:text-left">
-        <p>© 2026 Magno Climatização e Refrigeração. Todos os direitos reservados.</p>
+      <!-- Linha Final COM CNPJ ADICIONADO -->
+      <div class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-navy-foreground/10 pt-6 text-center text-xs opacity-70 md:flex-row md:items-center md:text-left">
+        <p>© 2026 Magno Climatização e Refrigeração. Todos os direitos reservados. CNPJ: 34.645.902/0001-05</p>
         <a href="politica-de-privacidade/index.html" class="hover:text-primary transition-colors underline decoration-navy-foreground/30 underline-offset-4">
           Política de Privacidade
         </a>
