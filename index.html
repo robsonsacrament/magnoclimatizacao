@@ -12,6 +12,43 @@
   
   <!-- CSS ATUALIZADO COM MAPA E RODAPÉ LIMPO -->
   <style>
+    /* ============================================================
+   CRÉDITO DE DESENVOLVIMENTO (RSB | Prime)
+   ============================================================ */
+.footer-credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.credit-dev {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  color: rgba(255,255,255,0.7);
+}
+
+.rsb-link {
+  color: #d4af37;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.2s, filter 0.2s;
+}
+
+.rsb-link:hover {
+  color: #f5d76e;
+  filter: brightness(1.1);
+}
+
+@media (min-width: 768px) {
+  .footer-credits {
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
     /* ... (Mantenha todo o seu CSS anterior aqui) ... */
 
     /* NOVA REGRA: Limitar altura das imagens de serviço no Desktop */
@@ -516,23 +553,29 @@
       </div>
     </section>
 
-    <!-- BLOG / DICAS -->
+      <!-- BLOG / DICAS -->
     <section class="px-5 py-20 md:py-28 bg-secondary" id="blog">
       <div class="reveal mx-auto max-w-6xl">
         <h2 class="mb-12 text-center text-3xl font-extrabold md:text-4xl text-navy">
           Dicas de Ar-Condicionado e Refrigeração
           <span class="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"></span>
         </h2>
+
         <div class="dicas-container max-w-5xl mx-auto">
+          
+          <!-- Card 1: Higienização (COM LINK PARA O ARTIGO) -->
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
-            <div class="w-full overflow-hidden">
-              <img alt="Higienização de ar-condicionado" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/ambiente.jpg"/>
-            </div>
+            <a href="blog/higienizacao-ar-condicionado.html" class="block w-full overflow-hidden">
+              <img alt="Higienização de ar-condicionado" class="dicas-img w-full transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/ambiente.jpg"/>
+            </a>
             <div class="flex flex-1 flex-col p-3">
               <h3 class="text-xs font-bold leading-snug text-navy line-clamp-2 md:text-sm">Qual a importância da higienização do ar-condicionado?</h3>
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">Fungos e bactérias acumulam nos filtros. Veja por que limpar regularmente protege sua saúde.</p>
+              <a href="blog/higienizacao-ar-condicionado.html" class="mt-auto pt-2 text-[11px] font-bold text-primary group-hover:underline inline-block">Leia mais →</a>
             </div>
           </article>
+
+          <!-- Card 2: Manutenção Preventiva -->
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Manutenção preventiva" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/instalacao.jpg"/>
@@ -542,6 +585,8 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">Entenda a frequência ideal para manter o desempenho e economizar energia.</p>
             </div>
           </article>
+
+          <!-- Card 3: Escolha de Capacidade -->
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Escolha de ar-condicionado" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/tecnico-split.jpg"/>
@@ -551,6 +596,8 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">BTUs, tamanho do ambiente e incidência solar: o que considerar antes de comprar.</p>
             </div>
           </article>
+
+          <!-- Card 4: Infraestrutura -->
           <article class="group flex flex-col overflow-hidden rounded-xl bg-card shadow-soft transition-shadow hover:shadow-card">
             <div class="w-full overflow-hidden">
               <img alt="Infraestrutura para climatização" class="dicas-img transition-transform duration-500 group-hover:scale-105" loading="lazy" src="img/infra.jpg"/>
@@ -560,6 +607,7 @@
               <p class="mt-1.5 hidden text-[11px] leading-snug text-muted-foreground line-clamp-2 md:block">Evite quebrar paredes depois. Entenda a importância do planejamento.</p>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -719,15 +767,16 @@
 
       </div>
 
-      <!-- Linha Final COM CNPJ ADICIONADO -->
-      <div class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-navy-foreground/10 pt-6 text-center text-xs opacity-70 md:flex-row md:items-center md:text-left">
+           <!-- Linha Final: Copyright + Política + Crédito Dev -->
+      <div class="mt-12 border-t border-navy-foreground/10 pt-6 text-center text-xs opacity-70 md:flex md:flex-row md:items-center md:justify-between md:text-left">
         <p>© 2026 Magno Climatização e Refrigeração. Todos os direitos reservados. CNPJ: 34.645.902/0001-05</p>
-        <a href="politica-de-privacidade/index.html" class="hover:text-primary transition-colors underline decoration-navy-foreground/30 underline-offset-4">
-          Política de Privacidade
-        </a>
+        <div class="footer-credits mt-3 md:mt-0">
+          <a href="politica-de-privacidade/index.html" class="hover:text-primary transition-colors underline decoration-navy-foreground/30 underline-offset-4">
+            Política de Privacidade
+          </a>
+          <span class="credit-dev">Desenvolvimento por: <a href="https://www.rsbprime.com.br" target="_blank" rel="noopener" class="rsb-link">RSB | Prime</a></span>
+        </div>
       </div>
-
-    </div>
   </footer>
 
   <!-- WHATSAPP FLUTUANTE -->

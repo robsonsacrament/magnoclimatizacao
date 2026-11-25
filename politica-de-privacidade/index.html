@@ -41,6 +41,18 @@
         <span class="hidden md:inline">WhatsApp (48) 99617-7747</span>
       </a>
     </div>
+
+  <style>
+    /* ============================================================
+       CRÉDITO DE DESENVOLVIMENTO (RSB | Prime)
+       ============================================================ */
+    .footer-credits { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+    .credit-dev { font-size: 0.75rem; opacity: 0.9; color: rgba(255,255,255,0.7); }
+    .rsb-link { color: #d4af37; font-weight: 700; font-family: "Montserrat", sans-serif; letter-spacing: 0.5px; transition: color 0.2s, filter 0.2s; }
+    .rsb-link:hover { color: #f5d76e; filter: brightness(1.1); }
+    @media (min-width: 768px) { .footer-credits { flex-direction: row; gap: 1.5rem; align-items: center; } }
+  </style>
+    
   </header>
 
   <!-- BREADCRUMBS -->
@@ -185,12 +197,14 @@
 
     </div>
 
-    <div class="mx-auto mt-12 max-w-6xl border-t border-navy-foreground/10 pt-6 flex flex-col items-center justify-between gap-3 text-center text-xs opacity-70 md:flex-row md:items-center md:text-left">
-      <p>© 2026 Magno Climatização e Refrigeração. Todos os direitos reservados.</p>
-      
-      <a href="./index.html" class="hover:text-primary transition-colors underline decoration-navy-foreground/30 underline-offset-4">
-        Política de Privacidade
-      </a>
+        <div class="mx-auto mt-12 border-t border-navy-foreground/10 pt-6 text-center text-xs opacity-70 md:flex md:flex-row md:items-center md:justify-between md:text-left">
+      <p>© 2026 Magno Climatização e Refrigeração. Todos os direitos reservados. CNPJ: 34.645.902/0001-05</p>
+      <div class="footer-credits mt-3 md:mt-0">
+        <a href="./index.html" class="hover:text-primary transition-colors underline decoration-navy-foreground/30 underline-offset-4">
+          Política de Privacidade
+        </a>
+        <span class="credit-dev">Desenvolvimento por: <a href="https://www.rsbprime.com.br" target="_blank" rel="noopener" class="rsb-link">RSB | Prime</a></span>
+      </div>
     </div>
   </footer>
 
